@@ -1,0 +1,99 @@
+/* Add your custom CSS styles here */
+
+/* Header Bar */
+.header-bar {
+  background-color: #EAB2A0;
+  padding: 10px 0;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Main Heading */
+.h1-main {
+  color: #ffffff;
+  font-size: 48px;
+  font-family: Consolas, monospace;
+  text-align: center;
+}
+
+/* Subheading */
+.p-sub {
+  color: #ffffff;
+  font-size: 16px;
+  font-family: Consolas, monospace;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Section Headings */
+.h2-section {
+  color: #ffffff;
+  font-size: 24px;
+  font-family: Consolas, monospace;
+}
+
+/* List Items */
+.li-item {
+  color: #ffffff;
+  font-size: 16px;
+  font-family: Consolas, monospace;
+}
+
+/* Search Button */
+#search-button {
+  background-color: #EAB2A0;
+  color: #000000;
+  padding: 10px 20px;
+  border: none;
+  font-size: 16px;
+  font-family: Consolas, monospace;
+}
+
+/* Search Results */
+#search-results p {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+/* Friend Input */
+#friend_input {
+  width: 500px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-family: Consolas, monospace;
+  font-size: 16px;
+}
+
+/* Emotion Star Plot Title */
+#emotion-star-plot-title {
+  color: #ffffff;
+  font-size: 24px;
+  font-family: Consolas, monospace;
+}
+
+/* Grid Container */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Left Section Container */
+.left-section-container {
+  padding: 20px;
+  background-color: #232323;
+  border-radius: 10px;
+}
+
+/* Right Section Container */
+.right-section-container {
+  padding: 20px;
+  background-color: #232323;
+  border-radius: 10px;
+}
+
+/* App Layout */
+.app-layout {
+  font-family: Consolas, monospace;
+  margin: 20px;
+  font-size: 14px;
+}

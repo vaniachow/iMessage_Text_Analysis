@@ -107,6 +107,10 @@ fig_line.update_layout(
 
 app.layout = html.Div(
     children=[
+        html.Link(
+            rel='stylesheet',
+            href='/static/styles.css'
+        ),
         html.Div(
             children=[
                 html.Div(
@@ -115,50 +119,26 @@ app.layout = html.Div(
                             children=[
                                 html.H1(
                                     children="Text Message Analysis",
-                                    style={
-                                        "color": "#ffffff",
-                                        "font-size": "48px",
-                                        "font-family": "Consolas, monospace",
-                                        "text-align": "center",
-                                    },
+                                    className="h1-main"
                                 ),
                             ],
                             className="header-bar",
-                            style={
-                                "background-color": "#EAB2A0",
-                                "padding": "10px 0",
-                                "border-radius": "10px 10px 0 0",
-                            },
                         ),
                         html.P(
                             children="Here's how you interacted with your friends",
-                            style={
-                                "color": "#ffffff",
-                                "font-size": "16px",
-                                "font-family": "Consolas, monospace",
-                                "text-align": "center",
-                                "margin-top": "10px",
-                            },
+                            className="p-sub"
                         ),
                         html.Div(
                             children=[
                                 html.H2(
                                     "Your Best 'Ride or Dies'",
-                                    style={
-                                        "color": "#ffffff",
-                                        "font-size": "24px",
-                                        "font-family": "Consolas, monospace",
-                                    },
+                                    className="h2-section"
                                 ),
                                 html.Ul(
                                     [
                                         html.Li(
                                             f"{friend} Score: {scores}",
-                                            style={
-                                                "color": "#ffffff",
-                                                "font-size": "16px",
-                                                "font-family": "Consolas, monospace",
-                                            },
+                                            className="li-item"
                                         )
                                         for friend, scores in updated_best[:5]
                                     ]
@@ -170,21 +150,13 @@ app.layout = html.Div(
                             children=[
                                 html.H2(
                                     "Here's who you could be a little nicer to!",
-                                    style={
-                                        "color": "#ffffff",
-                                        "font-size": "24px",
-                                        "font-family": "Consolas, monospace",
-                                    },
+                                    className="h2-section"
                                 ),
                                 html.Ul(
                                     [
                                         html.Li(
                                             f"{friend} Score: {scores}",
-                                            style={
-                                                "color": "#ffffff",
-                                                "font-size": "16px",
-                                                "font-family": "Consolas, monospace",
-                                            },
+                                            className="li-item"
                                         )
                                         for friend, scores in updated_worse[:5]
                                     ]
@@ -198,11 +170,7 @@ app.layout = html.Div(
                                     children=[
                                         html.H2(
                                             "Some of the words that make you the happiest",
-                                            style={
-                                                "color": "#ffffff",
-                                                "font-size": "24px",
-                                                "font-family": "Consolas, monospace",
-                                            },
+                                            className="h2-section"
                                         ),
                                         html.Img(
                                             id="joy-wordcloud",
@@ -222,21 +190,12 @@ app.layout = html.Div(
                         ),
                     ],
                     className="left-section-container",
-                    style={
-                        "padding": "20px",
-                        "background-color": "#232323",
-                        "border-radius": "0 0 10px 10px",
-                    },
                 ),
                 html.Div(
                     children=[
                         html.H2(
                             "Sentiment Distribution",
-                            style={
-                                "color": "#ffffff",
-                                "font-size": "24px",
-                                "font-family": "Consolas, monospace",
-                            },
+                            className="h2-section"
                         ),
                         dcc.Graph(
                             id="sentiment-pie-chart",
@@ -245,35 +204,18 @@ app.layout = html.Div(
                         ),
                         html.H2(
                             "Search a Friend",
-                            style={
-                                "color": "#ffffff",
-                                "font-size": "24px",
-                                "font-family": "Consolas, monospace",
-                            },
+                            className="h2-section"
                         ),
                         dcc.Input(
                             id="friend_input",
                             type="text",
                             placeholder="Enter your friend's phone number (eg. +12157965565)",
-                            style={
-                                "width": "500px",
-                                "margin-bottom": "10px",
-                                "padding": "10px",
-                                "font-family": "Consolas, monospace",
-                                "font-size": "16px",
-                            },
+                            className="friend-input"
                         ),
                         html.Button(
                             "Search",
                             id="search-button",
-                            style={
-                                "background-color": "#EAB2A0",
-                                "color": "#000000",
-                                "padding": "10px 20px",
-                                "border": "none",
-                                "font-size": "16px",
-                                "font-family": "Consolas, monospace",
-                            },
+                            className="search-button"
                         ),
                         html.Div(id="search-results"),
                         dcc.Graph(
@@ -282,22 +224,12 @@ app.layout = html.Div(
                         ),
                     ],
                     className="right-section-container",
-                    style={
-                        "padding": "20px",
-                        "background-color": "#232323",
-                        "border-radius": "10px",
-                    },
                 ),
             ],
             className="grid-container",
-            style={
-                "display": "grid",
-                "grid-template-columns": "1fr 1fr",
-                "gap": "20px",
-            },
         ),
     ],
-    style={"font-family": "Consolas, monospace", "margin": "20px", "font-size": "14px"},
+    className="app-layout",
 )
 
 @app.callback(
