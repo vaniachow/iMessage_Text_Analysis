@@ -183,11 +183,25 @@ app.layout = html.Div(
                             ],
                             className="left-section",
                         ),
-                        dcc.Graph(
-                            id="sentiment-line-chart",
-                            figure=fig_line,
-                            style={"height": "400px"},
-                        ),
+                        html.Div(
+                            children=[
+                                html.Div(
+                                    children=[
+                                        html.H2(
+                                            "Here's how many messages you sent recently",
+                                            className="h2-section"
+                                        ),
+                                        dcc.Graph(
+                                            id="sentiment-line-chart",
+                                            figure=fig_line,
+                                            style={"height": "400px"},
+                                        )
+                                    ],
+                                    style={"margin-bottom": "20px"},
+                                )
+                            ],
+                            className="left-section",
+                        )
                     ],
                     className="left-section-container",
                 ),
@@ -218,10 +232,15 @@ app.layout = html.Div(
                             className="search-button"
                         ),
                         html.Div(id="search-results"),
-                        dcc.Graph(
-                            id="emotion-star-plot",
-                            style={"height": "400px"},
-                        ),
+                        html.Div(
+                            dcc.Graph(
+                                id="emotion-star-plot",
+                                style={"height": "400px"},
+                            ),
+                            id="emotion-star-plot-container",
+                            className="right-section-container",
+                            style={"display": "none"}
+                        )
                     ],
                     className="right-section-container",
                 ),
@@ -235,6 +254,7 @@ app.layout = html.Div(
 @app.callback(
     Output("search-results", "children"),
     Output("sentiment-pie-chart", "figure"),
+    Output("emotion-star-plot-container", "style"),
     Output("emotion-star-plot", "figure"),
     inputs=[Input("search-button", "n_clicks")],
     state=[State("friend_input", "value")]
@@ -246,11 +266,11 @@ def search_friend(n_clicks, friend_input):
         or friend_input is None
         or friend_input == ""
     ):
-        return html.Div(), fig_pie, go.Figure()
+        return None
 
     friend_df = data.loc[data['Sent From'] == friend_input]
     if len(friend_df) == 0:
-        return html.P("No friend found"), fig_pie, go.Figure()
+        return None
     else:
         friends_name = find_phone(str(friend_input), contacts)
         if not friends_name:
@@ -269,9 +289,9 @@ def search_friend(n_clicks, friend_input):
             )
         fig_star_plot.update_layout(
             polar=dict(radialaxis=dict(visible=True)),
-            showlegend=False,
+            showlegend=True,
             title=f"Emotion Star Plot for {friends_name}",
-            font=dict(color="#ffffff", size=24, family="Consolas, monospace"),
+            font=dict(color="black", size=12, family="Consolas, monospace"),
         )
 
         friend_score = round(sum(friend_df['Pos/Neg Score']), 1)
@@ -286,9 +306,9 @@ def search_friend(n_clicks, friend_input):
                 ]
             ),
             fig_pie,
+            {"display": "block"} if n_clicks > 0 else {"display": "none"},
             fig_star_plot if len(friend_df) > 0 else go.Figure(),
         )
-
 
 if __name__ == "__main__":
     app.run_server()
