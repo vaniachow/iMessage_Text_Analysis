@@ -6,7 +6,7 @@ import dash_bootstrap_components as dbc
 import re
 
 data = pd.read_csv("complete.csv")
-app = Dash(__name__)
+app = Dash(external_stylesheets=[dbc.themes.QUARTZ])
 ALLOWED_TYPES = ("text", "number")
 
 '''
