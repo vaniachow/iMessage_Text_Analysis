@@ -145,19 +145,26 @@ app.layout = html.Div(
             children=[
                 html.Div(
                     children=[
-                        html.Div(
-                            children=[
-                                html.H1(
-                                    children="Text Message Analysis",
-                                    className="h1-main"
-                                ),
-                            ],
-                            className="header-bar",
+                        html.H1(
+                            children="Text Message Analysis",
+                            className="h1-main",
+                            style={"text-align": "center"}  # Center align the title
                         ),
                         html.H3(
                             children="Here's how you interacted with your friends",
-                            className="subtitle"
+                            className="subtitle",
+                            style={"text-align": "center"}  # Center align the header
                         ),
+                    ],
+                    className="header-bar",
+                ),
+            ],
+            className="header-container",
+        ),
+        html.Div(
+            children=[
+                html.Div(
+                    children=[
                         html.Div(
                             children=[
                                 html.H2(

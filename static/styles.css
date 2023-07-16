@@ -1,51 +1,70 @@
 /* Header Bar */
 .header-bar {
-  background-color: #ff3627;
+  background-color: #0078d7;
   padding: 10px 0;
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 10px 10px;
+  margin-bottom: 20px;
 }
+
 
 /* Main Heading */
 .h1-main {
   color: #ffffff;
   font-size: 48px;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(40, end);
+  margin: 0 auto; /* Center align the text */
+}
+
+/* Typing Animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 .subtitle {
-  color: #eeeeee;
+  color: #cccccc;
   font-size: 24px;
-  font-family: "Work Sans", sans-serif;
-  text-align: center;
+  font-family: "Roboto", sans-serif;
 }
 
 /* Subheading */
 .p-sub {
   color: #ffffff;
-  font-size: 16px;
+  font-size: 20px;
   font-family: "Crimson Text", sans-serif;
   text-align: center;
   margin-top: 10px;
+  cursor: default;
 }
 
 /* Section Headings */
 .h2-section {
   color: #ffffff;
   font-size: 24px;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+  cursor: default;
 }
 .h3-section {
-  color: #eeeeee;
+  color: #cccccc;
   font-size: 16px;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+  cursor: default;
 }
 
 /* List Items */
 .li-item {
   color: #ffffff;
-  font-size: 16px;
+  font-size: 20px;
   font-family: "Crimson Text", sans-serif;
+  cursor: default;
 }
 
 /* Search Button */
@@ -56,12 +75,19 @@
   border: none;
   font-size: 16px;
   font-family: "Crimson Text", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+  background-color: #e58f00;
 }
 
 /* Search Results */
 #search-results p {
   color: #ffffff;
   font-size: 16px;
+  cursor: default;
 }
 
 /* Friend Input */
@@ -71,14 +97,17 @@
   padding: 10px;
   font-family: "Crimson Text", sans-serif;
   font-size: 16px;
+  cursor: text;
 }
 
 /* Emotion Star Plot Title */
 #emotion-star-plot-title {
-  color: #000000;
+  color: #ffffff;
   font-size: 12px;
   font-family: "Crimson Text", monospace;
+  cursor: default;
 }
+
 
 /* Grid Container */
 .grid-container {
@@ -90,7 +119,7 @@
 /* Left Section Container */
 .left-section-container {
   padding: 20px;
-  background-color: #ff3627;
+  background-color: #0078d7;
   border-radius: 10px;
 }
 
@@ -99,11 +128,4 @@
   padding: 20px;
   background-color: #232323;
   border-radius: 10px;
-}
-
-/* App Layout */
-.app-layout {
-  font-family: "Crimson Text", monospace;
-  margin: 20px;
-  font-size: 14px;
 }
