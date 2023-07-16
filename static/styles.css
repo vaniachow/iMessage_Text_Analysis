@@ -2,42 +2,35 @@
 .header-bar {
   background-color: #232323;
   padding: 10px 0;
-  border-radius: 10px 10px 10px 10px;
-  margin-bottom: 20px;
+  border-radius: 0;
 }
-
 
 /* Main Heading */
 .h1-main {
-  color: #ffffff;
+  color: #ffffff; /* Blue color */
   font-size: 48px;
   font-family: "Roboto", sans-serif;
   text-align: center;
   overflow: hidden;
   white-space: nowrap;
-  animation: typing 3s steps(40, end);
+  animation: typing 5s steps(40, end);
   margin: 0 auto; /* Center align the text */
 }
 
-/* Typing Animation */
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
+/* Subtitle */
 .subtitle {
-  color: #cccccc;
+  color: #666666; /* Darker gray color */
   font-size: 24px;
   font-family: "Roboto", sans-serif;
 }
 
+.dcc-graph-container {
+  margin-bottom: 20px;
+}
+
 /* Subheading */
 .p-sub {
-  color: #ffffff;
+  color: #1e90ff; /* Blue color */
   font-size: 20px;
   font-family: "Crimson Text", sans-serif;
   text-align: center;
@@ -47,13 +40,14 @@
 
 /* Section Headings */
 .h2-section {
-  color: #ffffff;
+  color: #232323; /* Dark gray color */
   font-size: 24px;
   font-family: "Roboto", sans-serif;
   cursor: default;
 }
+
 .h3-section {
-  color: #cccccc;
+  color: #666666; /* Darker gray color */
   font-size: 16px;
   font-family: "Roboto", sans-serif;
   cursor: default;
@@ -61,16 +55,15 @@
 
 /* List Items */
 .li-item {
-  color: #ffffff;
+  color: #232323; /* Dark gray color */
   font-size: 20px;
-  font-family: "Crimson Text", sans-serif;
   cursor: default;
 }
 
 /* Search Button */
 #search-button {
-  background-color: #ffa916;
-  color: #000000;
+  background-color: #1e90ff; /* Blue color */
+  color: #ffffff; /* White text color */
   padding: 10px 20px;
   border: none;
   font-size: 16px;
@@ -80,12 +73,12 @@
 }
 
 #search-button:hover {
-  background-color: #e58f00;
+  background-color: #0000a0; /* Darker blue color on hover */
 }
 
 /* Search Results */
 #search-results p {
-  color: #ffffff;
+  color: #232323;
   font-size: 16px;
   cursor: default;
 }
@@ -95,38 +88,37 @@
   width: 500px;
   margin-bottom: 10px;
   padding: 10px;
-  font-family: "Crimson Text", sans-serif;
   font-size: 16px;
   cursor: text;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
 }
 
-/* Emotion Star Plot Title */
-#emotion-star-plot-title {
-  color: #ffffff;
-  font-size: 12px;
-  font-family: "Crimson Text", monospace;
-  cursor: default;
+#friend_input:focus {
+  background-color: rgba(255, 255, 255, 0.8);
 }
-
 
 /* Grid Container */
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: 1fr 1fr 0;
 }
 
 /* Left Section Container */
 .left-section-container {
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.4); /* Transparent background */
-  border-radius: 10px;
+  border-radius: 0px;
 }
 
 /* Right Section Container */
 .right-section-container {
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.4); /* Transparent background */
-  border-radius: 10px;
+  border-radius: 0px;
 }
 
+.star-plot-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0;
+}

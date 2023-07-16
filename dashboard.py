@@ -249,10 +249,15 @@ app.layout = html.Div(
                             "Sentiment Distribution",
                             className="h2-section"
                         ),
-                        dcc.Graph(
-                            id="sentiment-pie-chart",
-                            figure=fig_pie_animated,
-                            style={"height": "400px"},
+                        html.Div(
+                            className="dcc-graph-container",
+                            children=[
+                                dcc.Graph(
+                                    id="sentiment-pie-chart",
+                                    figure=fig_pie_animated,
+                                    style={"height": "400px"},
+                                ),
+                            ]
                         ),
                         html.H2(
                             "Search a Friend",
@@ -280,7 +285,7 @@ app.layout = html.Div(
                                 style={"height": "400px"},
                             ),
                             id="emotion-star-plot-container",
-                            className="right-section-container",
+                            className="star-plot-container",
                             style={"display": "none"}
                         )
                     ],
@@ -332,8 +337,7 @@ def search_friend(n_clicks, friend_input):
         fig_star_plot.update_layout(
             polar=dict(radialaxis=dict(visible=True)),
             showlegend=True,
-            title=f"Emotion Star Plot for {friends_name}",
-            font=dict(color="black", size=12, family="Consolas, monospace"),
+            title=f"Emotion Star Plot for {friends_name}"
         )
 
         friend_score = round(sum(friend_df['Pos/Neg Score']), 1)
@@ -342,9 +346,9 @@ def search_friend(n_clicks, friend_input):
         return (
             html.Div(
                 [
-                    html.P(f"{friend_input} is saved as {friends_name}", style={"color": "#ffffff", "font-size": "16px"}),
-                    html.P(f"Friend Score: {friend_score}", style={"color": "#ffffff", "font-size": "16px"}),
-                    html.P(f"Friend Rank: {friend_rank}", style={"color": "#ffffff", "font-size": "16px"}),
+                    html.P(f"{friend_input} is saved as {friends_name}", style={"color": "#232323", "font-size": "20px"}),
+                    html.P(f"Friend Score: {friend_score}", style={"color": "#232323", "font-size": "20px"}),
+                    html.P(f"Friend Rank: {friend_rank}", style={"color": "#232323", "font-size": "20px"}),
                 ]
             ),
             fig_pie,
