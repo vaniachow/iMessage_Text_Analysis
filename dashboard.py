@@ -88,7 +88,12 @@ data['Rank'] = round(data['Pos/Neg Score'].rank(ascending=False), 0).fillna(0).a
 
 ## Plot
 sentiment_counts = data.groupby(['sentiment']).size()
-fig_pie = go.Figure(data=[go.Pie(labels=sentiment_counts.index, values=sentiment_counts)])
+fig_pie = go.Figure(data=[go.Pie(
+    labels=sentiment_counts.index,
+    values=sentiment_counts,
+    hovertemplate='%{label}: %{value}'
+)])
+fig_pie.update_traces(textinfo='label+percent', hoverinfo='skip')
 
 ## Line graph
 data['Time'] = pd.to_datetime(data['Time'])
@@ -97,7 +102,12 @@ message_counts = data.groupby(pd.Grouper(key='Time', freq='W'))['Time'].count().
 x_min = data['Time'].min().to_pydatetime().date()
 x_max = data['Time'].max().to_pydatetime().date()
 # Line graph
-fig_line = go.Figure(data=go.Scatter(x=message_counts['Time'], y=message_counts['Total Messages']))
+fig_line = go.Figure(data=go.Scatter(
+    x=message_counts['Time'],
+    y=message_counts['Total Messages'],
+    hovertemplate='Week of %{x}: %{y} messages'
+))
+fig_line.update_traces(mode='lines+markers')
 fig_line.update_layout(
     title='Total Messages Over Time',
     xaxis_title='Time',
@@ -108,8 +118,12 @@ fig_line.update_layout(
 app.layout = html.Div(
     children=[
         html.Link(
-            rel='stylesheet',
-            href='/static/styles.css'
+            href="https://fonts.googleapis.com/css?family=Crimson+Text|Work+Sans:400,700",
+            rel="stylesheet"
+        ),
+        html.Link(
+            href="/static/styles.css",
+            rel="stylesheet"
         ),
         html.Div(
             children=[
@@ -124,9 +138,9 @@ app.layout = html.Div(
                             ],
                             className="header-bar",
                         ),
-                        html.P(
+                        html.H3(
                             children="Here's how you interacted with your friends",
-                            className="p-sub"
+                            className="subtitle"
                         ),
                         html.Div(
                             children=[
@@ -219,6 +233,10 @@ app.layout = html.Div(
                         html.H2(
                             "Search a Friend",
                             className="h2-section"
+                        ),
+                        html.H3(
+                            "See how they scored, ranked, and the average vibe of their messages in a radar graph!",
+                            className="h3-section"
                         ),
                         dcc.Input(
                             id="friend_input",

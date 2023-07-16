@@ -1,8 +1,6 @@
-/* Add your custom CSS styles here */
-
 /* Header Bar */
 .header-bar {
-  background-color: #EAB2A0;
+  background-color: #ff3627;
   padding: 10px 0;
   border-radius: 10px 10px 0 0;
 }
@@ -11,7 +9,14 @@
 .h1-main {
   color: #ffffff;
   font-size: 48px;
-  font-family: Consolas, monospace;
+  font-family: "Work Sans", sans-serif;
+  text-align: center;
+}
+
+.subtitle {
+  color: #eeeeee;
+  font-size: 24px;
+  font-family: "Work Sans", sans-serif;
   text-align: center;
 }
 
@@ -19,7 +24,7 @@
 .p-sub {
   color: #ffffff;
   font-size: 16px;
-  font-family: Consolas, monospace;
+  font-family: "Crimson Text", sans-serif;
   text-align: center;
   margin-top: 10px;
 }
@@ -28,24 +33,29 @@
 .h2-section {
   color: #ffffff;
   font-size: 24px;
-  font-family: Consolas, monospace;
+  font-family: "Work Sans", sans-serif;
+}
+.h3-section {
+  color: #eeeeee;
+  font-size: 16px;
+  font-family: "Work Sans", sans-serif;
 }
 
 /* List Items */
 .li-item {
   color: #ffffff;
   font-size: 16px;
-  font-family: Consolas, monospace;
+  font-family: "Crimson Text", sans-serif;
 }
 
 /* Search Button */
 #search-button {
-  background-color: #EAB2A0;
+  background-color: #ffa916;
   color: #000000;
   padding: 10px 20px;
   border: none;
   font-size: 16px;
-  font-family: Consolas, monospace;
+  font-family: "Crimson Text", sans-serif;
 }
 
 /* Search Results */
@@ -59,15 +69,15 @@
   width: 500px;
   margin-bottom: 10px;
   padding: 10px;
-  font-family: Consolas, monospace;
+  font-family: "Crimson Text", sans-serif;
   font-size: 16px;
 }
 
 /* Emotion Star Plot Title */
 #emotion-star-plot-title {
-  color: "black";
+  color: #000000;
   font-size: 12px;
-  font-family: Consolas, monospace;
+  font-family: "Crimson Text", monospace;
 }
 
 /* Grid Container */
@@ -80,7 +90,7 @@
 /* Left Section Container */
 .left-section-container {
   padding: 20px;
-  background-color: #232323;
+  background-color: #ff3627;
   border-radius: 10px;
 }
 
@@ -93,7 +103,7 @@
 
 /* App Layout */
 .app-layout {
-  font-family: Consolas, monospace;
+  font-family: "Crimson Text", monospace;
   margin: 20px;
   font-size: 14px;
 }
