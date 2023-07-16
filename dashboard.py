@@ -87,13 +87,29 @@ for friend in friend_quality.keys():
 data['Rank'] = round(data['Pos/Neg Score'].rank(ascending=False), 0).fillna(0).astype(int)
 
 ## Plot
-sentiment_counts = data.groupby(['sentiment']).size()
-fig_pie = go.Figure(data=[go.Pie(
-    labels=sentiment_counts.index,
-    values=sentiment_counts,
-    hovertemplate='%{label}: %{value}'
-)])
-fig_pie.update_traces(textinfo='label+percent', hoverinfo='skip')
+data['Time'] = pd.to_datetime(data['Time'])
+sentiment_month_counts = data.groupby(['sentiment', pd.Grouper(key='Time', freq='M')]).size().reset_index(name='count')
+frames = []
+for month in sentiment_month_counts['Time'].unique():
+    month_data = sentiment_month_counts[sentiment_month_counts['Time'] == month]
+    fig_pie = go.Figure(data=[go.Pie(
+        labels=month_data['sentiment'],
+        values=month_data['count'],
+        hovertemplate='%{label}: %{value}'
+    )])
+    fig_pie.update_layout(title=f"Sentiment Distribution - {month.strftime('%B %Y')}")
+    frame = go.Frame(data=fig_pie.data, layout=fig_pie.layout)
+    frames.append(frame)
+
+fig_pie_animated = go.Figure(data=frames[0].data, layout=frames[0].layout, frames=frames[1:])
+fig_pie_animated.update_layout(
+    updatemenus=[{
+        'type': 'buttons',
+        'buttons': [{'label': 'Play', 'method': 'animate', 'args': [None]}]
+    }],
+    showlegend=False
+)
+fig_pie_animated.update_traces(textinfo='label+percent', hoverinfo='skip')
 
 ## Line graph
 data['Time'] = pd.to_datetime(data['Time'])
@@ -227,7 +243,7 @@ app.layout = html.Div(
                         ),
                         dcc.Graph(
                             id="sentiment-pie-chart",
-                            figure=fig_pie,
+                            figure=fig_pie_animated,
                             style={"height": "400px"},
                         ),
                         html.H2(
