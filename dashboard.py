@@ -246,7 +246,7 @@ app.layout = html.Div(
                 html.Div(
                     children=[
                         html.H2(
-                            "Sentiment Distribution",
+                            "Here's how the overall mood of your texts changed over time",
                             className="h2-section"
                         ),
                         html.Div(

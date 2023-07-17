@@ -90,12 +90,14 @@
   padding: 10px;
   font-size: 16px;
   cursor: text;
+  color: #232323;
   background-color: rgba(255, 255, 255, 0.5);
   border: none;
 }
 
 #friend_input:focus {
   background-color: rgba(255, 255, 255, 0.8);
+  color: #232323;
 }
 
 /* Grid Container */
